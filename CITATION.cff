@@ -44,8 +44,4 @@ authors:
   - family-names: Ahmad
     given-names: Noor
     affiliation: "Agriculture and Agri-Food Canada (AAFC)"
-    orcid:
-
-contact:
-  - name: "Lori Phillips"
-    email: "lori.phillips@agr.gc.ca"
+    orcid: https://orcid.org/xxxx-xxxx-xxxx-xxxx
