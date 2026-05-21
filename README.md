@@ -19,9 +19,9 @@
 
 ## About
 
-The **Microbiome-Master ITS** pipeline is a light-weight, custom built pipeline for routine bioinformatic processing of raw ITS gene region amplicons into Amplicon Sequence Variants (ASVs). The pipeline is managed via [snakemake](https://snakemake.readthedocs.io/en/stable/) and uses a variety of standard microbiome-based data analysis workflows including [QIIME2](https://qiime2.org/), [dada2](https://benjjneb.github.io/dada2/) etc. The pipeline is specifically designed to process Illumina-based paired-end reads, however other input short-read seuqencing data can be used (e.g., Ion Torrent; contact maintainer for more information *([CREDITS.md](CREDITS.md))* for more information).
+The **Microbiome-Master ITS** pipeline is a light-weight, custom built pipeline for routine bioinformatic processing of raw ITS gene region amplicons into **Amplicon Sequence Variants (ASVs)**. The pipeline is managed via [snakemake](https://snakemake.readthedocs.io/en/stable/) and uses a variety of standard microbiome-based data analysis workflows including [QIIME2](https://qiime2.org/), [dada2](https://benjjneb.github.io/dada2/) etc. The pipeline is specifically designed to process Illumina-based paired-end reads, however other input short-read seuqencing data can be used (e.g., Ion Torrent; contact maintainer *(see [CREDITS.md](CREDITS.md))* for more information).
 
-Starting from a QIIME2-formatted mapping file (linking sequencing file names to sample IDs and metadata) and raw demultiplexed .fastq files (uncompressed or compressed), the pipeline will carry out both sequence cleanup (i.e., filtering low-quality bases, primer removal, chimera checking, etc.) and base visualization and statistical analyses (i.e., ordinations, taxa bar plots, rarefaction curves etc; most of these (.qza/.qzv files specifically) can be directly visualized using qiime2-view).
+Starting from a QIIME2-formatted mapping file (linking sequencing file names to sample IDs and metadata) and raw demultiplexed .fastq files (uncompressed or compressed), the pipeline will carry out both sequence cleanup (i.e., filtering low-quality bases, primer removal, chimera checking, etc.) and base visualization and statistical analyses (i.e., ordinations, taxa bar plots, rarefaction curves etc; most of these (.qza/.qzv files specifically) can be directly visualized using [qiime2-view](https://view.qiime2.org/)).
 
 The pipeline is built using workflow modules that allow users to specify what kind of analysis they would like to run (i.e., routine workflow, PICRUSt2 workflow). The modularity of the pipeline allows easy integration of new workflows. Currently supported workflows include:
 
@@ -42,6 +42,7 @@ For technical details, including installation and usage instructions, please ref
 ## Acknowledgements
 
 *This project was developed by the **Microbial Ecology Group (AAFC-Harrow)**. For a list of individual contributions, see **[CREDITS.md](CREDITS.md)**.*
+
 > To cite this project, click the **`Cite this repository`** button on the right-hand sidebar.
 
 - The following files were adapted from the [Template for Government of Canada open source code repositories](https://github.com/canada-ca/template-gabarit): `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md` and `SECURITY.md`.
