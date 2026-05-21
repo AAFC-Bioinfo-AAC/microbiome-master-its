@@ -9,6 +9,10 @@ date-released: "2023-12-12"
 repository-code: "https://github.com/AAFC-Bioinfo-AAC/microbiome-master-its.git"
 license: MIT
 
+identifiers:
+   - type: doi
+     value: # Complete once finalized
+
 abstract: >-
   The AAFC Bioinformatics Code Catalogue (ABCC) template repository provides a
   modular and extensible framework for developing reproducible data analysis
@@ -25,10 +29,6 @@ keywords:
   - pipeline
   - Snakemake
   - AAFC
-
-identifiers:
-   - type: doi
-     value: # Complete once finalized
 
 authors:
   - family-names: Seuradge
