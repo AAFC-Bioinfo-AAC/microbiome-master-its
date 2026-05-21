@@ -1,21 +1,37 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
 cff-version: 1.2.0
-
-message: "If you use this software, please cite it using the metadata provided below."
-
-title: Microbiome-Master ITS: A reproducible ITS marker gene analysis pipeline
+title: >-
+  Microbiome-Master ITS: A reproducible ITS marker gene
+  analysis pipeline
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
 type: software
-version: "1.2.0"
-date-released: "2023-12-12"
-repository-code: "https://github.com/AAFC-Bioinfo-AAC/microbiome-master-its.git"
-license: MIT
-
-abstract: >-
-  The AAFC Bioinformatics Code Catalogue (ABCC) template repository provides a
-  modular and extensible framework for developing reproducible data analysis
-  pipelines within the AAFC-Bioinfo-AAC GitHub organization. It enables
-  researchers and developers to quickly initialize new projects using
-  parameterized, reusable components adaptable to diverse analytical workflows.
-
+authors:
+  - given-names: Brent
+    family-names: Seuradge
+    email: brent.seuradge@agr.gc.ca
+    affiliation: Agriculture and Agri-Food Canada (AAFC)
+    orcid: 'https://orcid.org/0009-0009-5219-4357'
+  - given-names: Lori
+    family-names: Phillips
+    email: lori.phillips@agr.gc.ca
+    affiliation: Agriculture and Agri-Food Canada (AAFC)
+    orcid: 'https://orcid.org/0000-0003-1005-5331'
+  - given-names: Noor
+    family-names: Ahmad
+    email: noor.ahmad@agr.gc.ca
+    affiliation: Agriculture and Agri-Food Canada (AAFC)
+repository-code: >-
+  https://github.com/AAFC-Bioinfo-AAC/microbiome-master-its.git
+abstract: |2-
+    The AAFC Bioinformatics Code Catalogue (ABCC) template repository provides a
+    modular and extensible framework for developing reproducible data analysis
+    pipelines within the AAFC-Bioinfo-AAC GitHub organization. It enables
+    researchers and developers to quickly initialize new projects using
+    parameterized, reusable components adaptable to diverse analytical workflows.
 keywords:
   - reproducibility
   - microbiome
@@ -23,21 +39,8 @@ keywords:
   - amplicon
   - bioinformatics
   - pipeline
-  - Snakemake
+  - snakemake
   - AAFC
-
-authors:
-  - family-names: Seuradge
-    given-names: Brent
-    affiliation: "Agriculture and Agri-Food Canada (AAFC)"
-    orcid: https://orcid.org/0009-0009-5219-4357
-  
-  - family-names: Phillips
-    given-names: Lori
-    affiliation: "Agriculture and Agri-Food Canada (AAFC)"
-    orcid: https://orcid.org/0000-0003-1005-5331
-  
-  - family-names: Ahmad
-    given-names: Noor
-    affiliation: "Agriculture and Agri-Food Canada (AAFC)"
-    orcid: https://orcid.org/0000-0003-1005-5331
+license: MIT
+version: 1.0.2
+date-released: '2023-12-12'
