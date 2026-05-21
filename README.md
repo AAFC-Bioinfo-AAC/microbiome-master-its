@@ -11,7 +11,7 @@
 
 - [About](#about)
 - [Documentation](#documentation)
-- [Aknowledgements](#acknowledgements)
+- [Acknowledgements](#acknowledgements)
 - [Security](#security)
 - [License](#license)
 
