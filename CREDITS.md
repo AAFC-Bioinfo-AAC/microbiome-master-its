@@ -1,8 +1,7 @@
 # Credits
 
-> *👉 List contributor names, and where appropriate, include their contributions and additional details (affiliation, period of involvement, etc.).*
-
 This project exists thanks to the work of many people. We gratefully acknowledge their contributions below.
 
-- Name: Contribution
-- ...
+- 🐔 Brent Seuradge [maintainer] (AAFC-Harrow, AAFC)
+- 🐘 Noor Ahmad [contributor; Sept-Dec 2025] (AAFC-Harrow, AAFC)
+- 🐱 Lori Phillips [principal investigator] (AAFC-Harrow, AAFC)
