@@ -12,17 +12,17 @@ type: software
 authors:
   - given-names: Brent
     family-names: Seuradge
-    email: brent.seuradge@agr.gc.ca
+    email: brent [dot] seuradge [at] agr [dot] gc [dot] ca
     affiliation: Agriculture and Agri-Food Canada (AAFC)
     orcid: 'https://orcid.org/0009-0009-5219-4357'
   - given-names: Lori
     family-names: Phillips
-    email: lori.phillips@agr.gc.ca
+    email: lori [dot] phillips [at] agr [dot] gc [dot] ca
     affiliation: Agriculture and Agri-Food Canada (AAFC)
     orcid: 'https://orcid.org/0000-0003-1005-5331'
   - given-names: Noor
     family-names: Ahmad
-    email: noor.ahmad@agr.gc.ca
+    email: noor [dot] ahmad [at] agr [dot] gc [dot] ca
     affiliation: Agriculture and Agri-Food Canada (AAFC)
 repository-code: >-
   https://github.com/AAFC-Bioinfo-AAC/microbiome-master-its.git
