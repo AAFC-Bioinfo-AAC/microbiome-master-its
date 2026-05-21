@@ -1,13 +1,13 @@
 cff-version: 1.2.0
 
-message: If you use this software, please cite it using the metadata provided below.
+message: "If you use this software, please cite it using the metadata provided below."
 
 title: Microbiome-Master ITS: A reproducible ITS marker gene analysis pipeline
 type: software
 version: "1.2.0"
 date-released: "2023-12-12"
-license: MIT
 repository-code: "https://github.com/AAFC-Bioinfo-AAC/microbiome-master-its.git"
+license: MIT
 
 abstract: >-
   The AAFC Bioinformatics Code Catalogue (ABCC) template repository provides a
@@ -28,7 +28,7 @@ keywords:
 
 identifiers:
    - type: doi
-     value: "10.5281/zenodo.xxxxxxx"
+     value: # Complete once finalized
 
 authors:
   - family-names: Seuradge
