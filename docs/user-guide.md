@@ -53,6 +53,8 @@ To download the data, run: `curl -O https://example.com/path/to/dataset1.tar.gz`
 >  - Conda
 >  - Python 3.9+
 >  - Recommended OS: Linux
+>  - QIIME2 (see below)
+>  - FUNGuild (see below)
 
 1. **Clone/copy this repository to your computer**
    - Navigate to the directory where you want the project to live and run:
@@ -72,7 +74,11 @@ To download the data, run: `curl -O https://example.com/path/to/dataset1.tar.gz`
      ```bash
      conda env create -f  workflow/envs/microbiome-master-0.2.yml
      ```
-     
+
+3. **Download FUNGuild**
+   - Clone repo from https://github.com/UMNFuN/FUNGuild
+   - Ensure file paths of main scripts (`FUNGuild.py` and `Guilds_v1.1.py`) are recorded correctly in the `config.yaml` file
+
 ---
 
 ## Setup Instructions
