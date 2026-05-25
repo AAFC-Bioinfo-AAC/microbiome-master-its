@@ -32,7 +32,7 @@
 
 ### Default Workflow
 
-![QIIME2-DADA2-dag](resources/images/dag.jpeg)
+![MODULE-QIIME2-DADA2-dag](/resources/images/dag.jpeg "Dafault Workflow Overview") 
 
 ---
 
@@ -131,7 +131,7 @@ Output files include:
 
 ---
 
-![Microbial Ecology Group](/resources/images/lablogo.png "Microbial Ecology Group Logo") 
+![Microbial Ecology Group](/resources/images/lablogo.png "MELOGO") 
 
 ![Agriculture and Agri-Food Canada](/resources/images/aafclogo.png "AAFC logo")
 
