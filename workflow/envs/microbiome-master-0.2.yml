@@ -1,0 +1,12 @@
+name: microbiome-master-0.2
+
+channels:
+  - https://packages.qiime2.org/qiime2/2024.5/amplicon/released
+  - bioconda
+  - conda-forge
+  - defaults
+
+dependencies:
+  - qiime2-amplicon
+  - snakemake-minimal
+  - snakemake

@@ -1,0 +1,181 @@
+---
+title: "MICROBIOME MASTER ITS (v.0.2)"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(options(scipen=999))
+library(ggplot2)
+library(tidyverse)
+library(data.table)
+library(reshape2)
+library(RColorBrewer)
+library(viridis)
+#library(pastecs)
+```
+
+```{r run_analyses, include=FALSE}
+DATA <- read.table("../../results/qiime-dada2-module/feature_table/denoising_stats/stats.tsv", sep="\t", header=TRUE, comment.char="#")
+DATA1 <-  reshape2::melt(DATA, id.vars=c("sample.id"), 
+                         measure.vars=c("input",
+                                        "filtered",
+                                        "percentage.of.input.passed.filter",
+                                        "denoised",
+                                        "merged",
+                                        "percentage.of.input.merged",
+                                        "non.chimeric",
+                                        "percentage.of.input.non.chimeric"))
+
+PRCT      <- c("percentage.of.input.passed.filter", "percentage.of.input.merged", "percentage.of.input.non.chimeric")
+NUM       <- c("input", "denoised", "merged", "non.chimeric")
+DATA_PRCT <- filter(DATA1, variable %in% PRCT)
+DATA_NUM  <- filter(DATA1, variable %in% NUM)
+
+# Get important stat values
+SAMPLE_NO <- nrow(DATA)
+
+INPUT_MEAN <- round(mean(DATA$input),2)
+INPUT_STD <- round(sd(DATA$input),2)
+INPUT_MIN <-min(DATA$input)
+INPUT_MAX <- max(DATA$input)
+
+DENOISED_MEAN <- round(mean(DATA$denoised),2)
+DENOISED_STD <- round(sd(DATA$denoised),2)
+DENOISED_MIN <-min(DATA$denoised)
+DENOISED_MAX <- max(DATA$denoised)
+
+MERGED_MEAN <- round(mean(DATA$merged),2)
+MERGED_STD <- round(sd(DATA$merged),2)
+MERGED_MIN <-min(DATA$merged)
+MERGED_MAX <- max(DATA$merged)
+
+NC_MEAN <- round(mean(DATA$non.chimeric),2)
+NC_STD <- round(sd(DATA$non.chimeric),2)
+NC_MIN <-min(DATA$non.chimeric)
+NC_MAX <- max(DATA$non.chimeric)
+
+generate_barplots <- function(d,l) {
+  plot <- ggplot(d, aes(x=reorder(sample.id, -value), y=value, fill=variable)) +
+    geom_bar(position="stack", stat="identity") +
+    scale_y_continuous(labels = scales::comma) +
+    scale_fill_viridis(discrete = TRUE) +
+    xlab("Sample/library") +
+    ylab(paste(l)) +
+    theme(legend.position = "top") + 
+    theme(axis.text.x=element_blank(),
+          axis.ticks.x=element_blank())
+  
+  return(plot)
+  
+}
+
+generate_histograms <- function(d,l,t,b) {
+  plot <- ggplot(d, aes(x=.data[[l]])) +
+                   geom_histogram(binwidth=b, fill="#69b3a2", color="#e9ecef", alpha=0.9) +
+                   scale_y_continuous(labels = scales::comma) +
+                   scale_x_continuous(labels = scales::comma) +
+                   xlab(paste(t)) +
+                   ylab("Count") 
+  return(plot)
+  
+}
+
+generate_boxplots <- function(d,l) {
+  plot <- ggplot(d, aes(variable, value, colour=variable)) +
+    geom_point(alpha=0.01) +
+    geom_jitter(position=position_jitter(width=.2, height=0)) +
+    geom_boxplot(outlier.shape=NA, alpha=0.4,lwd=0.75) +
+    scale_y_continuous(labels = scales::comma) +
+    scale_colour_viridis(discrete = TRUE) +    
+    ylab(paste(l)) +
+    theme(legend.position = "right") +
+    theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+  
+  return(plot)
+  
+}
+
+```
+
+## DADA2 OUTPUT REPORT
+
+---
+
+### General Statistics
+
+**Sample No**: `r SAMPLE_NO`
+
+**Input**  
+Min/Max: `r INPUT_MIN` / `r INPUT_MAX`  
+Average: `r INPUT_MEAN` ± `r INPUT_STD`  
+
+**Denoised**  
+Min/Max: `r DENOISED_MIN` / `r DENOISED_MAX`  
+Average: `r DENOISED_MEAN` ± `r DENOISED_STD`  
+
+**Merged**  
+Min/Max: `r MERGED_MIN` / `r MERGED_MAX`  
+Average: `r MERGED_MEAN` ± `r MERGED_STD`  
+
+**Non-chimeric**  
+Min/Max: `r NC_MIN` / `r NC_MAX`  
+Average: `r NC_MEAN` ± `r NC_STD`  
+
+---
+
+### Summary Plots
+
+**Histogram of read counts AFTER denoising** 
+
+
+```{r print_hist1, include=TRUE, echo=FALSE, fig.align='left'}
+generate_histograms(DATA, "non.chimeric", "Number of reads after denoising processing", 5000)
+```
+
+
+**Histogram of % of reads AFTER denoising steps** 
+
+
+```{r print_hist2, include=TRUE, echo=FALSE, fig.align='left'}
+generate_histograms(DATA, "percentage.of.input.non.chimeric", "% of reads after denoising processing", 5)
+```
+
+
+**Number of reads per sample at denoising steps** 
+
+
+```{r print_barplots1, include=TRUE, echo=FALSE, fig.align='left'}
+generate_barplots(DATA_NUM,"Number of reads")
+```
+
+
+**% of reads per sample after denoising steps** 
+
+
+```{r print_barplots2, include=TRUE, echo=FALSE, fig.align='left'}
+generate_barplots(DATA_PRCT, "% of reads")
+```
+
+
+**Number of Reads AFTER denoising** 
+
+```{r print_boxplots2, include=TRUE, echo=FALSE, fig.align='left'}
+generate_boxplots(DATA_NUM, "Number of reads after denoising")
+```
+
+
+**% of Reads AFTER denoising** 
+
+```{r print_boxplots1, include=TRUE, echo=FALSE, fig.align='left'}
+generate_boxplots(DATA_PRCT,"% of reads after denoising")
+```
+
+
+
+*--- End of Report ---*

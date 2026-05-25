@@ -1,0 +1,138 @@
+#######################################################################################
+#######################################################################################
+######                                                                           ######
+######                          MICROBIOME MASTER v.0.2                           ######
+######                   Microbial Ecology Group (AAFC-Harrow)                   ######
+######                ITS Gene Region Amplicon Processing Pipeline               ######
+######                                                                           ######
+###### ------------------------------------------------------------------------- ######
+######                            Configuration File                             ######
+###### ------------------------------------------------------------------------- ######
+######                                                                           ######
+###### Author:        Brent Seuradge (brent.seuradge@agr.gc.ca)                  ######
+######                                                                           ######
+###### Contributors:  Lori Phillips (Current; lori.phillips@agr.gc.ca)           ######
+######                Annette Lan (Jan-April 2019)                               ######
+######                                                                           ######
+###### Version:       0.2 (2025-12-11)                                           ######
+######                                                                           ######
+###### ------------------------------------------------------------------------- ######
+######                                                                           ######
+#######################################################################################
+#######################################################################################
+
+##### --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+##### >>>>> INITIAL SET-UP 
+##### --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Number of threads to be used for execution of every tool in this workflow
+st_threads: "20"
+
+# Working directory file path where pipeline will be executed ("." will use current working directory):
+workdir: "."
+
+# File path where raw fastq files are located:
+initial_input_dir: "data/raw"
+
+# Metadata Mapping File (in QIIME format)
+mapping_file_2: "data/mapping/metadata_mapping_v2.0.txt"
+
+# Specficy input file extension. Input file types that can be used with this workflow are .fastq/.fastq.gz OR .fq/.fq.gz
+input_file_extension: ".fq"
+
+# Specficy input file postfix 
+input_file_forward_postfix: "R1.fq"
+input_file_reverse_postfix: "R2.fq"
+
+# QIIME2 Conda Environment Name (to be used as default for pipeline unless otherwise noted at steps below. These environments must be installed prior to running. See QIIME2 conda installation guide)
+qiime2_env: "qiime2-amplicon-2024.2"
+
+
+##### --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+##### >>>>> MODULE SELECTION
+##### --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+module_selection:
+    qiime2_dada2_ITS: "TRUE" # GENERATE EXACT SEQUENCE VARIANTS FOR MICROBIOME ANALYSIS
+    grdi_legacy: "FALSE"     # GENERATE OTUS FOR MICROBIOME ANALYSIS USING THE ORIGINAL PHILLIPS LAB GRDI PIPELINE (NO LONGER SUPPORTED)
+
+##### --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+##### >>>>> MODULE CONFIGURATIONS
+##### --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+##### QIIME2-DADA2
+
+# ITS Region detection via ITSx
+ITSx:
+    region: "ITS2"       # Select ITS region to extraction (options: "ITS2", "ITS1", "ALL")
+    taxonomic_group: "F" # Select the taxonomic group sequenced (see here for selections: https://github.com/USDA-ARS-GBRU/itsxpress/)
+    clutser_ID: 1.0      # The percent identity for clustering reads range [0.99-1.0], set to 1 for exact de-replication. Default 1.0.
+    threads: 35
+     
+# Primer Removal and sequence cleanup
+cutadapt:
+    cores: "35"
+    Fprimer: "GAACGCAGCRAAGGGYGA"
+    rc_Fprimer: "TCRCCCTTYGCTGCGTTC"
+    Rprimer: "TCCTCCGCTTATTGATATGC"
+    rc_Rprimer: "GCATATCAATAAGCGGAGGA"
+    Minlength: "25"
+    Maxlength: "300"
+    errorrate: "0.1"
+    discard_untrimmed: "TRUE"
+
+# ASV Table Generation
+dada2:
+    cores: "35"
+    trunc_q: "2"       # Reads are truncated at the first instance of a quality score less than or equal to this value. If the resulting read is then shorter than `trunc-len-f` or `trunc-len-r` (depending on the direction of the read) it is discarded
+    trunc_len_f: "225" # Position at which forward read sequences should be truncated due to decrease in quality
+    trunc_len_r: "185" # Position at which reverse read sequences should be truncated due to decrease in quality
+    min_overlap: 12    # The minimum length of the overlap required for merging the forward and reverse reads
+    maxee_f: "2"       # Forward reads with number of expected errors higher than this value will be discarded
+    maxee_r: "4"       # Reverse reads with number of expected errors higher than this value will be discarded
+    
+    # Pooling method: the method used to pool samples for denoising. 
+        # independent": Samples are denoised indpendently.
+        # "pseudo": The pseudo-pooling method is used to approximate pooling of samples. In short, samples are denoised independently once, ASVs detected in at least 2 samples are recorded, 
+        # and samples are denoised independently a second time, but this time with prior knowledge of the recorded ASVs and thus higher sensitivity to those ASVs.
+
+    pooling_method: "pseudo"
+
+    # Chimera detection
+        # The method used to remove chimeras. 
+        # "none": No chimera removal is performed. 
+        # "pooled": All reads are pooled prior to chimera detection. 
+        # "consensus": Chimeras are detected in samples individually, and sequences found chimeric in a sufficient fraction of samples are removed.
+
+    chimera_method: "consensus"
+    min_fold_parent_over_abundance: 1   # The minimum abundance of potential parents of a sequence being tested as chimeric, expressed as a fold-change versus the abundance of the sequence being tested
+    reads_learn: "100000000"            # The number of reads to use when training the error model. Smaller numbers will result in a shorter run time but a less reliable error model
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Taxonomy Assignment
+taxonomy:
+    unite_fasta: "ref/UNITE/v10/sh_refs_qiime_ver10_dynamic_19.02.2025.fasta"      # Location of training refernce fasta files
+    unite_taxonomy: "ref/UNITE/v10/sh_taxonomy_qiime_ver10_dynamic_19.02.2025.txt" # Location of training refernce taxonomic annotations files
+    confidence_threshold: 0.7                                                      # Confidence threshold for limiting taxonomic depth
+    cores: 1                                                                       # The maximum number of concurrently worker processes. If -1 all CPUs are used.
+    dispatch: "20*n_jobs"                                                          # The number of batches (of tasks) to be pre-dispatched
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Rarefaction Depth
+rarefaction_depth: 6737 # This depth will be used for any step where rarefaction is performed (i.e., feature table analysis, beta/alpha diversity)
+
+alpha_min_depth: 1      # The minimum rarefaction depth
+alpha_steps: 10         # The number of rarefaction depths to include between min-depth and max-depth
+alpha_interations: 10   # The number of rarefied feature tables to compute at each step
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+funguild:
+    path_taxaparser: "/mnt/e/tools/FUNGuild/FUNGuild_2023-12-06/FUNGuild/FUNGuild.py"
+    path_guilds: "/mnt/e/tools/FUNGuild/FUNGuild_2023-12-06/FUNGuild/Guilds_v1.1.py"
+    plot: "code/plot_guilds.R"
+    categories: "SampleID" #separate multiple categories with a comma, no space
+    width: "45"
+    height: "30"
