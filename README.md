@@ -23,7 +23,7 @@ The **Microbiome-Master ITS** pipeline is a light-weight, custom built pipeline 
 
 Starting from a QIIME2-formatted mapping file (linking sequencing file names to sample IDs and metadata) and raw demultiplexed .fastq files (uncompressed or compressed), the pipeline will carry out both sequence cleanup (i.e., filtering low-quality bases, primer removal, chimera checking, etc.) and base visualization and statistical analyses (i.e., ordinations, taxa bar plots, rarefaction curves etc; most of these (.qza/.qzv files specifically) can be directly visualized using [qiime2-view](https://view.qiime2.org/)).
 
-The pipeline is built using workflow modules that allow users to specify what kind of analysis they would like to run (i.e., routine workflow, PICRUSt2 workflow). The modularity of the pipeline allows easy integration of new workflows. Currently supported workflows include:
+The pipeline is built using workflow modules that allow users to specify what kind of analysis they would like to run (i.e., routine workflow). The modularity of the pipeline allows easy integration of new workflows. Currently supported workflows include:
 
 **QIIME2-DADA2 MODULE:**
 - ASV table generation using qiime2 implemented version of dada2 and general analysis
