@@ -4,7 +4,7 @@
 #Comeau AM, Douglas GM, Langille MGI. 2017. Microbiome Helper: a Custom and Streamlined Workflow for Microbiome Research. mSystems 2(1): e00127-16; DOI: 10.1128/mSystems.00127-16
 #Modified by: Annette Lan (Phillips Lab, March 2019)
 
-version <- "1.0"
+version <- "1.0.2"
 
 # read in required libraries
 library( "ggplot2" )
