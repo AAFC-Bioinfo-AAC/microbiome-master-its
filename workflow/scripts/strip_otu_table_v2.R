@@ -2,7 +2,7 @@
 #return text file with first line removed and '#OTU ID' changed to 'OTU_ID'
 
 
-version <- "1.0.2.2"
+version <- "1.0.2"
 
 # read in required libraries
 library( "ggplot2" )
