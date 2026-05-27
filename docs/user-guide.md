@@ -38,12 +38,10 @@
 
 ## Data
 
-> 👉 *Provide information on input data formats, structure, and sources.*
+To run the workflow, you simply need **1) metadata mapping file** (linking sequencing files to sample-ids and contextual data) and **2) your raw fastq forward and reverse reads**
 
-- **Dataset 1**: FASTQ reads retrieved from NCBI on 2025-01-01.
-- **Dataset 2**: Reference genome in FASTA format from Ensembl, downloaded on 2025-01-01.
+> This repository also includes test data (from: [Benalcazar et al. 2024](https://pubmed.ncbi.nlm.nih.gov/38734653/)) that can be used for initial testing and/or troubleshooting found **[here](data/raw/)**
 
-To download the data, run: `curl -O https://example.com/path/to/dataset1.tar.gz`
 
 ---
 
