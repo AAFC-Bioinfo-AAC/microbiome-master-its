@@ -40,7 +40,7 @@
 
 To run the workflow, you simply need **1) metadata mapping file** (linking sequencing files to sample-ids and contextual data) and **2) your raw fastq forward and reverse reads**
 
-> This repository also includes test data (from: [Benalcazar et al. 2024](https://pubmed.ncbi.nlm.nih.gov/38734653/)) that can be used for initial testing and/or troubleshooting found **[here](data/raw/)**
+> This repository also includes test data (from: [Benalcazar et al. 2024](https://pubmed.ncbi.nlm.nih.gov/38734653/)) that can be used for initial testing and/or troubleshooting found **data/raw/**
 
 
 ---
