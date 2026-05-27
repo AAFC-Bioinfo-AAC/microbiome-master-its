@@ -8,7 +8,7 @@
 
 #for i in `ls *.fq`; do echo "Removing spaces and replacing with '!' for file $i"; sed -e 's/\s\+/!/g' $i >> fixed/$i ; echo "Complete." ; done
 
-for i in `ls *.fq`; do echo "Checking fastq file $i for possible errors"; python /fs/isi-nas1/grdi/grdi_eco/groups/phillipsl/tools/miniconda3/envs/valid-fastq/bin/biopet-validatefastq -i $i ; echo "Complete." ;  done 
+for i in `ls *.fq`; do echo "Checking fastq file $i for possible errors"; python $PWD -i $i ; echo "Complete." ;  done 
 
 #You can check how many errors (if any) in the output by then running this in the output text file 
 
