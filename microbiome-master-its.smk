@@ -10,7 +10,7 @@
 ######                                                                           ######
 ###### Author:        Brent Seuradge                                             ######
 ######                                                                           ######
-###### Contributors:  Lori Phillips, Noor Ahmad                                  ######
+###### Contributors:  Lori Phillips, Noor Ahmad, Annette Lan                     ######
 ######                                                                           ######
 ###### Version:       1.0.2 (2025-12-11)                                         ######
 ######                                                                           ######
