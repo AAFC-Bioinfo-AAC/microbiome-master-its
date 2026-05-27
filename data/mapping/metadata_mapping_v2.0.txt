@@ -1,0 +1,10 @@
+sample-id	forward-absolute-filepath	reverse-absolute-filepath	fileInput	crop_type	cropping_system	depth	decom	texture_class	organic_matter	pH
+#q2:types	categorical	categorical	categorical	categorical	categorical	categorical	categorical	categorical	numeric	numeric
+QTT202	$PWD/data/raw/s_QTT_202_ITS_R1.fastq.gz	$PWD/data/raw/s_QTT_202_ITS_R2.fastq.gz	$PWD/data/raw/s_QTT_202_ITS_trimmed.fasta	Wheat	Annual	5_cm	59_yrs	SiltyClayLoam	14.86711989	6.436
+QTT203	$PWD/data/raw/s_QTT_203_ITS_R1.fastq.gz	$PWD/data/raw/s_QTT_203_ITS_R2.fastq.gz	$PWD/data/raw/s_QTT_203_ITS_trimmed.fasta	Wheat	Annual	15_cm	59_yrs	SiltLoam	13.06337539	6.672
+QTT204	$PWD/data/raw/s_QTT_204_ITS_R1.fastq.gz	$PWD/data/raw/s_QTT_204_ITS_R2.fastq.gz	$PWD/data/raw/s_QTT_204_ITS_trimmed.fasta	Forest	Mixedforest	5_cm	0_yrs	SiltyClayLoam	15.4066344	6.512
+QTT205	$PWD/data/raw/s_QTT_205_ITS_R1.fastq.gz	$PWD/data/raw/s_QTT_205_ITS_R2.fastq.gz	$PWD/data/raw/s_QTT_205_ITS_trimmed.fasta	Forest	Mixedforest	15_cm	0_yrs	SiltyClayLoam	8.608146407	6.605
+QTT206	$PWD/data/raw/s_QTT_206_ITS_R1.fastq.gz	$PWD/data/raw/s_QTT_206_ITS_R2.fastq.gz	$PWD/data/raw/s_QTT_206_ITS_trimmed.fasta	Potato	Annual	5_cm	64_yrs	SiltLoam	4.602635983	6.013
+QTT207	$PWD/data/raw/s_QTT_207_ITS_R1.fastq.gz	$PWD/data/raw/s_QTT_207_ITS_R2.fastq.gz	$PWD/data/raw/s_QTT_207_ITS_trimmed.fasta	Potato	Annual	15_cm	64_yrs	SiltLoam	3.452510383	6.239
+QTT208	$PWD/data/raw/s_QTT_208_ITS_R1.fastq.gz	$PWD/data/raw/s_QTT_208_ITS_R2.fastq.gz	$PWD/data/raw/s_QTT_208_ITS_trimmed.fasta	Forest	Mixedforest	5_cm	0_yrs	Loam	9.350877538	5.531
+QTT209	$PWD/data/raw/s_QTT_209_ITS_R1.fastq.gz	$PWD/data/raw/s_QTT_209_ITS_R2.fastq.gz	$PWD/data/raw/s_QTT_209_ITS_trimmed.fasta	Forest	Mixedforest	15_cm	0_yrs	Loam	6.599268293	5.701

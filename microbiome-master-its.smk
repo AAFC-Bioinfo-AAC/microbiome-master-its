@@ -8,12 +8,11 @@
 ######                              Snakefile File                               ######
 ###### ------------------------------------------------------------------------- ######
 ######                                                                           ######
-###### Author:        Brent Seuradge (brent.seuradge@agr.gc.ca)                  ######
+###### Author:        Brent Seuradge                                             ######
 ######                                                                           ######
-###### Contributors:  Lori Phillips (Current; lori.phillips@agr.gc.ca)           ######
-######                Annette Lan (Jan-April 2019)                               ######
+###### Contributors:  Lori Phillips, Noor Ahmad                                  ######
 ######                                                                           ######
-###### Version:       0.2 (2025-12-11)                                           ######
+###### Version:       1.0.2 (2025-12-11)                                         ######
 ######                                                                           ######
 ###### ------------------------------------------------------------------------- ######
 ######                                                                           ######
@@ -26,7 +25,7 @@
 
 configfile: "config.yaml"
 workdir: config["workdir"]
-version = 0.2
+version = 1.0.2
 
 import os
 import os.path

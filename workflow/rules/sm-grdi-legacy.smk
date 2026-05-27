@@ -1,6 +1,6 @@
 """ Phillips Lab - Snakemake 16S Sequence Processing Pipeline.
 
-Version: 2.1
+Version: 1.0.2
 Author: Brent Seuradge (adpated from Oksana Korol; GRDI Ecobiomics Pipeline 2016)
 Contributors: Annette Lan (Jan-April 2019)
 Date: 2020-03-19

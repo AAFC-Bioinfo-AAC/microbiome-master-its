@@ -1,7 +1,7 @@
 #######################################################################################
 #######################################################################################
 ######                                                                           ######
-######                          MICROBIOME MASTER v.0.2                           ######
+######                          MICROBIOME MASTER v1.0.2                         ######
 ######                   Microbial Ecology Group (AAFC-Harrow)                   ######
 ######                ITS Gene Region Amplicon Processing Pipeline               ######
 ######                                                                           ######
@@ -9,12 +9,11 @@
 ######                            Configuration File                             ######
 ###### ------------------------------------------------------------------------- ######
 ######                                                                           ######
-###### Author:        Brent Seuradge (brent.seuradge@agr.gc.ca)                  ######
+###### Author:        Brent Seuradge                                             ######
 ######                                                                           ######
-###### Contributors:  Lori Phillips (Current; lori.phillips@agr.gc.ca)           ######
-######                Annette Lan (Jan-April 2019)                               ######
+###### Contributors:  Lori Phillips, Noor Ahmad                                  ######
 ######                                                                           ######
-###### Version:       0.2 (2025-12-11)                                           ######
+###### Version:       1.0.2 (2025-12-11)                                         ######
 ######                                                                           ######
 ###### ------------------------------------------------------------------------- ######
 ######                                                                           ######
@@ -38,11 +37,11 @@ initial_input_dir: "data/raw"
 mapping_file_2: "data/mapping/metadata_mapping_v2.0.txt"
 
 # Specficy input file extension. Input file types that can be used with this workflow are .fastq/.fastq.gz OR .fq/.fq.gz
-input_file_extension: ".fq"
+input_file_extension: ".fastq.gz"
 
 # Specficy input file postfix 
-input_file_forward_postfix: "R1.fq"
-input_file_reverse_postfix: "R2.fq"
+input_file_forward_postfix: "R1.fastq.gz"
+input_file_reverse_postfix: "R2.fastq.gz"
 
 # QIIME2 Conda Environment Name (to be used as default for pipeline unless otherwise noted at steps below. These environments must be installed prior to running. See QIIME2 conda installation guide)
 qiime2_env: "qiime2-amplicon-2024.2"

@@ -6,7 +6,7 @@
 #.*
 # #!.*/
 
-data/raw/
+data/raw/*.fastq.gz
 data/process/
 ref/
 results/
