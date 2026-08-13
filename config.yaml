@@ -121,16 +121,16 @@ taxonomy:
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Rarefaction Depth
-rarefaction_depth: 6737 # This depth will be used for any step where rarefaction is performed (i.e., feature table analysis, beta/alpha diversity)
+rarefaction_depth: 10000 # This depth will be used for any step where rarefaction is performed (i.e., feature table analysis, beta/alpha diversity)
 
-alpha_min_depth: 1      # The minimum rarefaction depth
-alpha_steps: 10         # The number of rarefaction depths to include between min-depth and max-depth
-alpha_interations: 10   # The number of rarefied feature tables to compute at each step
+alpha_min_depth: 1       # The minimum rarefaction depth
+alpha_steps: 10          # The number of rarefaction depths to include between min-depth and max-depth
+alpha_interations: 10    # The number of rarefied feature tables to compute at each step
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 funguild:
-    path_taxaparser: "/mnt/e/tools/FUNGuild/FUNGuild_2023-12-06/FUNGuild/FUNGuild.py"
-    path_guilds: "/mnt/e/tools/FUNGuild/FUNGuild_2023-12-06/FUNGuild/Guilds_v1.1.py"
+    #path_taxaparser: "workflow/scripts/FUNGuild/deprecated/FUNGuild.py"
+    path_guilds: "workflow/scripts/FUNGuild/Guilds_v1.1.py"
     plot: "code/plot_guilds.R"
     categories: "SampleID" #separate multiple categories with a comma, no space
     width: "45"
