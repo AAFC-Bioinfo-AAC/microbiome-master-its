@@ -100,9 +100,13 @@ To run the workflow, you simply need **1) metadata mapping file** (linking seque
 
 2. **Update `config.yaml` file**
     - Update this file with the relevant information and preferences for your analysis.
+      - The DADA2 trimming and denoising parameters should be optimized for your amplicon. This may require trying different combinations of parameters **(Do NOT rely on the default values)**
+        - Good strategy (especially for large datasets) is to try various parameters on a smaller subset of your data to assess read loss/retention
+            > **Tip!** check `data/process/qiime-dada2-module/denoising_stats/dada2_report.html` for a quick assessment of the dada2 output after completion of the step in the workflow
+    - Other notes:
       - All paths can be relative or absolute.
-      - 🚩 If not specified, default values will be used.
-      - 🚩 **Important!** Ensure that **raw uncompressed or compressed fastq** files are either directly placed in `data/raw` or are symlinked to this location.*
+      - If not specified, default values will be used
+      - **Important!** Ensure that **raw uncompressed or compressed fastq** files are either directly placed in `data/raw` or are symlinked to this location*
 
 ---
 
