@@ -25,7 +25,7 @@
 
 configfile: "config.yaml"
 workdir: config["workdir"]
-version = 1.0.2
+version = "1.0.2"
 
 import os
 import os.path
