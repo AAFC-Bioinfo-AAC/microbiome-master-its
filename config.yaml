@@ -44,7 +44,7 @@ input_file_forward_postfix: "R1.fastq.gz"
 input_file_reverse_postfix: "R2.fastq.gz"
 
 # QIIME2 Conda Environment Name (to be used as default for pipeline unless otherwise noted at steps below. These environments must be installed prior to running. See QIIME2 conda installation guide)
-qiime2_env: "qiime2-amplicon-2024.2"
+qiime2_env: "qiime2-amplicon-2024.5"
 
 
 ##### --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
