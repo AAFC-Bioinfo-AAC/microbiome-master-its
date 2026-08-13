@@ -20,7 +20,6 @@
 
 **v.1.0.2 [Dec 12/25]**
   - Fixed microbiome-master default conda .yaml file 🐘
-  - Added FIGARO to assist with efficiently determining read quality-filtering parameters 🐘
   - Completed update of README.md file to reflect all new updates/features 🐘 🐔 
   - Minor bug fixes 🐘 🐔
 
@@ -41,7 +40,7 @@
 To run the workflow, you simply need **1) metadata mapping file** (linking sequencing files to sample-ids and contextual data) and **2) your raw fastq forward and reverse reads**
 
 > This repository also includes test data (from: [Benalcazar et al. 2024](https://pubmed.ncbi.nlm.nih.gov/38734653/)) that can be used for initial testing and/or troubleshooting found **data/raw/**
-
+> - To extract test data run: `tar -xvf data/raw/sample_data.tar.gz`
 
 ---
 
@@ -50,8 +49,9 @@ To run the workflow, you simply need **1) metadata mapping file** (linking seque
 > 🚩 **Pre-requisites**
 >  - Conda
 >  - Python 3.9+
->  - Recommended OS: Linux
->  - QIIME2 (see below)
+>  - Recommended OS: Linux / Windows WSL
+>  - QIIME2 (2024.5)
+>  - ITSxpress (see below)
 >  - FUNGuild (see below)
 
 1. **Clone/copy this repository to your computer**
@@ -63,7 +63,17 @@ To run the workflow, you simply need **1) metadata mapping file** (linking seque
 
 2. **Install conda, QIIME 2 (2024.5), and create the pipeline environment**
    - Once you have a working command line environment, install conda following the instructions **[here](https://www.anaconda.com/docs/getting-started/miniconda/install/overview)**.
-   - Install QIIME 2 2024.5 following the official **[QIIME 2 installation guide](https://docs.qiime2.org/2024.5/install/)**.
+   - Install **QIIME 2 2024.5** following the official **[QIIME 2 installation guide](https://docs.qiime2.org/2024.5/install/)**.
+     - 🚩 *Note* this workflow was tested on the QIIME2 2024.5 release but will probably work with newer versions. New QIIME2 versions will be tested soon!
+      
+3. **Install ITSxpress-qiime2 within the QIIME2 conda environment following the installation steps [here](https://github.com/arivers/itsxpressqiime2)**
+   - Once ITSxpress-qiime2 is installed including all relevant dependencies, check that it's working properly by running (in the qiime2 environment):
+       - `qiime dev refresh-cache`
+       - `qiime itsxpress`
+   - There should be no errors detected when running the above commands
+   - deactivate the qiime2 environment and proceed to the next step
+
+4. **Install Microbiome-Master working conda environment**
    - Set conda channel priority:
      ```bash
       conda config --set channel_priority flexible
@@ -73,9 +83,9 @@ To run the workflow, you simply need **1) metadata mapping file** (linking seque
      conda env create -f  workflow/envs/microbiome-master-0.2.yml
      ```
 
-3. **Download FUNGuild**
-   - Clone repo from https://github.com/UMNFuN/FUNGuild
-   - Ensure file paths of main scripts (`FUNGuild.py` and `Guilds_v1.1.py`) are recorded correctly in the `config.yaml` file
+5. **Download [FUNGuild](https://github.com/UMNFuN/FUNGuild.git)**
+   - Run `git clone https://github.com/UMNFuN/FUNGuild.git workflow/scripts/FUNGuild`
+     - 🚩 *Note* FUNGuild can be downloaded anywhere, just ensure the file paths of main scripts (`FUNGuild.py` and `Guilds_v1.1.py`) are recorded correctly in the `config.yaml` file
 
 ---
 
@@ -92,11 +102,8 @@ To run the workflow, you simply need **1) metadata mapping file** (linking seque
     - Update this file with the relevant information and preferences for your analysis.
       - All paths can be relative or absolute.
       - 🚩 If not specified, default values will be used.
-    - If using **FIGARO (recommended)** for read trimming:
-        - Place the FIGARO file that comes with this repository wherever you like in your file structure.
-        - Reference that path in `config.yaml`.
-        > **Important!** Ensure that **raw uncompressed fastq** files are either directly placed in `data/raw` or are symlinked to this location.*
-    
+      - 🚩 **Important!** Ensure that **raw uncompressed or compressed fastq** files are either directly placed in `data/raw` or are symlinked to this location.*
+
 ---
 
 ## Usage
@@ -106,7 +113,7 @@ To run the workflow, you simply need **1) metadata mapping file** (linking seque
 
 3. **Navigate to the repository folder**
 
-4. **Run a dry-run of the workflow**
+4. Optional: **Run a dry-run of the workflow**
    - ```snakemake --snakefile microbiome-master-its.smk --use-conda --cores <desired-cores> --dry-run```
    - *Replace `<desired-cores>` with the number of CPU cores you want Snakemake to use.*
 
