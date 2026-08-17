@@ -11,7 +11,8 @@
 
 - [À propos](#à-propos)
 - [Documentation](#documentation)
-- [Acknowledgements](#acknowledgements)
+- [Citation](#citation)
+- [Contribution](#contribution)
 - [Sécurité](#sécurité)
 - [Licence](#licence)
 
@@ -19,11 +20,11 @@
 
 ## À propos
 
-Le pipeline **Microbiome-Master ITS** est un pipeline léger, développé sur mesure pour le traitement bioinformatique de routine des amplicons bruts de la région génique ITS en **variants de séquences d’amplicons (ASV)**. Le pipeline est géré via [snakemake](https://snakemake.readthedocs.io/en/stable/) et utilise divers flux de travail standards d’analyse de données microbiomiques, notamment [QIIME2](https://qiime2.org/), [dada2](https://benjjneb.github.io/dada2/), etc. Le pipeline est spécialement conçu pour traiter des lectures paired-end basées sur Illumina, mais d’autres données de séquençage à lectures courtes peuvent également être utilisées (par ex. Ion Torrent; contacter le responsable du projet *(see [CREDITS.md](CREDITS.md))* pour plus d’informations).
+Le pipeline **Microbiome-Master ITS** est un pipeline léger et construit sur mesure pour le traitement bioinformatique de routine des amplicons bruts de la région du gène ITS en **variantes de séquence d’amplicons (ASV)**. Le pipeline est géré via [snakemake](https://snakemake.readthedocs.io/en/stable/) et utilise une variété de flux de travail standard d’analyse de données basés sur le microbiome, notamment [QIIME2](https://qiime2.org/), [dada2](https://benjjneb.github.io/dada2/), etc. Le pipeline est spécifiquement conçu pour traiter les lectures d’extrémité appariées basées sur Illumina, mais d’autres données d’entrée à lecture courte peuvent être utilisées (par exemple, Ion Torrent; contacter le mainteneur *(voir [CREDITS.md](CREDITS.md))* pour plus d’informations).
 
-À partir d’un fichier de correspondance au format QIIME2 (associant les noms des fichiers de séquençage aux identifiants d’échantillons et aux métadonnées) et de fichiers .fastq bruts démultiplexés (compressés ou non), le pipeline effectue à la fois le nettoyage des séquences (c.-à-d. filtrage des bases de faible qualité, suppression des amorces, détection des chimères, etc.) ainsi que des analyses de visualisation et statistiques de base (c.-à-d. ordinations, graphiques en barres des taxons, courbes de raréfaction, etc.; la plupart de ces fichiers (.qza/.qzv en particulier) peuvent être visualisés directement avec [qiime2-view](https://view.qiime2.org/))).
+À partir d’un fichier de cartographie au format QIIME2 (reliant les noms des fichiers de séquençage aux ID d’échantillons et aux métadonnées) et de fichiers .fastq démultiplexés bruts (non compressés ou compressés), le pipeline effectuera à la fois le nettoyage des séquences (c’est-à-dire le filtrage des bases de mauvaise qualité, le retrait des amorces, la vérification des chimères, etc.) et la visualisation des bases et les analyses statistiques (c’est-à-dire les ordinations, les diagrammes à barres des taxons, les courbes de raréfaction, etc.); la plupart de ces éléments (fichiers .qza/.qzv en particulier) peuvent être visualisés directement à l’aide de [qiime2-vue](https://view.qiime2.org/).
 
-Le pipeline est construit à l’aide de modules de workflow permettant aux utilisateurs de spécifier le type d’analyse qu’ils souhaitent exécuter (p. ex. workflow de routine, workflow PICRUSt2). La modularité du pipeline permet une intégration facile de nouveaux workflows. Les workflows actuellement pris en charge incluent:
+Le pipeline est construit à l’aide de modules de flux de travail qui permettent aux utilisateurs de spécifier le type d’analyse qu’ils souhaitent exécuter (c’est-à-dire un flux de travail de routine). La modularité du pipeline permet une intégration facile de nouveaux flux de travail. Les flux de travail actuellement pris en charge sont les suivants:
 
 **MODULE QIIME2-DADA2:**
 - Génération de tables ASV à l’aide de la version de DADA2 implémentée dans QIIME2 et analyses générales
@@ -39,7 +40,19 @@ Pour les détails techniques, y compris les instructions d’installation et d�
 
 ---
 
-## Acknowledgements
+## Citation
+
+Pour citer ce projet, cliquez sur le bouton **`Cite this repository`** dans la barre latérale de droite.
+
+---
+
+## Contributors
+
+*Ce projet a été élaboré par le **Groupe d’écologie microbienne (AAC-Harrow)**. Pour une liste des contributions individuelles, voir **[CREDITS.md](CREDITS.md)**.*
+
+- Les fichiers suivants ont été adaptés à partir du [Template for Government of Canada open source code repositories](https://github.com/canada-ca/template-gabarit): `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md` et `SECURITY.md`.
+- Les contributions sont les bienvenues!! Veuillez consulter les lignes directrices dans [CONTRIBUTING.md](CONTRIBUTING.md) et vous assurer de respecter notre [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) pour favoriser un -
+- Pour une liste des ressources clés utilisées ici, voir [REFERENCES.md](REFERENCES.md).
 
 ---
 
