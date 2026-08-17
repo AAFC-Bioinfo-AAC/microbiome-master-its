@@ -12,7 +12,7 @@
 - [About](#about)
 - [Documentation](#documentation)
 - [Citation](#citation)
-- [Acknowledgements](#acknowledgements)
+- [Contributors](#contributors)
 - [Security](#security)
 - [License](#license)
 
@@ -42,13 +42,11 @@ For technical details, including installation and usage instructions, please ref
 
 ## Citation
 
-> 👉 *REQUIRED: Include citation instructions, ideally via a [CITATION.cff](CITATION.cff) file, which enables GitHub and tools like Zenodo to generate standardized citations automatically. See links for the [documentation on Citation File Format (CFF)](https://citation-file-format.github.io/) and a [tool to generate a custom CITATION.cff file](https://citation-file-format.github.io/cff-initializer-javascript/#/).*
-
 To cite this project, click the **`Cite this repository`** button on the right-hand sidebar.
 
 ---
 
-## Acknowledgements
+## Contributors
 
 *This project was developed by the **Microbial Ecology Group (AAFC-Harrow)**. For a list of individual contributions, see **[CREDITS.md](CREDITS.md)**.*
 
