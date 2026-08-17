@@ -50,8 +50,6 @@ To cite this project, click the **`Cite this repository`** button on the right-h
 
 *This project was developed by the **Microbial Ecology Group (AAFC-Harrow)**. For a list of individual contributions, see **[CREDITS.md](CREDITS.md)**.*
 
-> To cite this project, click the **`Cite this repository`** button on the right-hand sidebar.
-
 - The following files were adapted from the [Template for Government of Canada open source code repositories](https://github.com/canada-ca/template-gabarit): `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md` and `SECURITY.md`.
 - Contributions are welcome! Please review the guidelines in [CONTRIBUTING.md](CONTRIBUTING.md) and ensure you adhere to our [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) to foster a respectful and inclusive environment.
 - For a list of key resources used here, see [REFERENCES.md](REFERENCES.md).
